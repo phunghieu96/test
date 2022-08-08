@@ -17,6 +17,7 @@ public class EntityToDtoConverter {
     private ModelMapper modelMapper;
 
     public ProductDto convertToDto(Product product) {
+
         return modelMapper.map(product, ProductDto.class);
     }
 
@@ -31,5 +32,13 @@ public class EntityToDtoConverter {
     public CategoryDto convertToDto(Category category) {
 
         return modelMapper.map(category, CategoryDto.class);
+    }
+
+    public List<CategoryDto> convertToListCategoryDto(List<Category> categories) {
+        List<CategoryDto> listCategoryDto = new ArrayList<>();
+        for (Category category : categories) {
+            listCategoryDto.add(modelMapper.map(category, CategoryDto.class));
+        }
+        return listCategoryDto;
     }
 }

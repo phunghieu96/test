@@ -1,10 +1,12 @@
 package com.hieusd.productmanagement.controller;
 
+import com.hieusd.productmanagement.constants.ProductStatus;
 import com.hieusd.productmanagement.model.dto.ProductDto;
 import com.hieusd.productmanagement.model.entity.Category;
 import com.hieusd.productmanagement.model.entity.Product;
 import com.hieusd.productmanagement.model.response.CommonResponse;
 import com.hieusd.productmanagement.model.response.ProductPagingResponse;
+import com.hieusd.productmanagement.repository.ProductRepository;
 import com.hieusd.productmanagement.service.CategoryService;
 import com.hieusd.productmanagement.service.ProductService;
 import com.hieusd.productmanagement.utils.DtoToEntityConverter;
@@ -44,6 +46,9 @@ public class ProductController {
 
     @Autowired
     private EntityToDtoConverter entityToDtoConverter;
+
+    @Autowired
+    private ProductRepository productRepository;
 
     @GetMapping("")
     public ResponseEntity<CommonResponse> get(
